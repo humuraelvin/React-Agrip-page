@@ -1,38 +1,604 @@
-.App {
-  text-align: center;
+:root {
+  --color-primary: #6f6af8;
+  --color-white: #fff;
+  --color-red: rgb(255, 63, 63);
+  --color-grey-100: hsl(220, 20%, 10%, 5%);
+  --color-grey-200: hsl(220, 20%, 10%, 10%);
+  --color-grey-300: hsl(220, 20%, 10%, 25%);
+  --color-grey-500: hsl(220, 20%, 10%, 50%);
+  --color-grey-700: #252542;
+  --color-grey-900: #0c0c22;
+
+  --color-bg: hwb(240 95% 0%);
+
+  --transition: all 300ms ease;
+
+  --container-width-lg: 84%;
+  --container-width-md: 92%;
+  --form-width: 50%;
+
+  --radius-1: 0.3rem;
+  --radisu-2: 0.6rem;
+  --radius-3: 1rem;
+  --radisu-4: 2rem;
+  --bs-blue: #1f3a63;
+  --bs-indigo: #53acf8;
+  --bs-purple: #ad45f6;
+  --bs-pink: #f6458e;
+  --bs-red: #f55767;
+  --bs-orange: #f6d845;
+  --bs-yellow: #ffa024;
+  --bs-green: #66bb6a;
+  --bs-teal: #299ef3;
+  --bs-cyan: #3eb8f4;
+  --bs-white: #fff;
+  --bs-gray: #c3c1c8;
+  --bs-gray-dark: #616368;
+  --bs-primary: #1f3a63;
+  --bs-secondary: #4f5665;
+  --bs-success: #66bb6a;
+  --bs-info: #3eb8f4;
+  --bs-warning: #ffa024;
+  --bs-danger: #f55767;
+  --bs-light: #f9fafd;
+  --bs-dark: #1f1534;
+  --bs-font-sans-serif: "Chivo", "Open Sans", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  --bs-font-monospace: "SFMono-Regular", Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  --bs-gradient: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0)
+  );
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--color-bg);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-grey-700);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav-bar {
+  background-color: var(--bs-white);
+  box-shadow: 2px #616368;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-inline: auto;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  backdrop-filter: blur(20px);
+}
+
+.left {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 75px;
+  position: relative;
+  margin-left: 3rem;
+  margin-top: 0.5rem;
+  padding: 1rem;
+}
+
+.ul {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-left: 3rem;
+  padding: 2rem;
+}
+
+.ul li {
+  list-style: none;
+}
+
+.ul li a {
+  text-decoration: none;
+  color: #0c0c22;
+  font-size: 1.2rem;
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.right .signup-btn {
+  position: relative;
+  margin-left: 2rem;
+  margin-right: 5rem;
+  margin-top: 3rem;
+  height: 4rem;
+  width: 8rem;
+  cursor: pointer;
+  border: 1px solid #0c0c22;
+  background: #0c0c22;
+  border-radius: 1rem;
+  color: var(--bs-white);
+}
+
+.right h1 {
+  position: relative;
+  margin-top: 3.7rem;
+  font-size: 2rem;
+  font-weight: 100;
+}
+
+.invest {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.invest .img1 {
+  position: absolute;
+  margin-top: 30rem;
+}
+
+.invest h1 {
+  margin-top: 15rem;
+  margin-left: 20rem;
+}
+
+.invest p {
+  position: absolute;
+  top: 25rem;
+  margin-left: 20rem;
+}
+
+.invest .header-btn {
+  position: absolute;
+  top: 32rem;
+  left: 20rem;
+  height: 3.5rem;
+  width: 12rem;
+  cursor: pointer;
+  background: #66bb6a;
+  border-radius: 1rem;
+  color: var(--bs-white);
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.opportunities {
   display: flex;
   flex-direction: column;
+}
+
+.opportunities .top {
+  position: absolute;
+  margin-top: -3rem;
+}
+
+.opportunities .top h1 {
+  position: relative;
+  left: 45rem;
+  line-height: 4rem;
+  font-size: 3rem;
+}
+
+.opportunities .top p {
+  position: relative;
+  left: 38rem;
+  font-size: 0.9rem;
+}
+
+.below {
+  position: absolute;
+  margin-top: 12rem;
+  margin-left: 20rem;
+  gap: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.svg {
+  margin-top: 7rem;
+  margin-left: 2rem;
+  height: 5rem;
+  color: #66bb6a;
+}
+
+.box1 h1 {
+  margin-left: 2rem;
+}
+
+.box1 p {
+  margin-left: 2rem;
+}
+
+.box1 {
+  width: 27rem;
+  height: 20rem;
+  background-color: #ffffff;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.investiment {
+  margin-top: 45rem;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.above h1 {
+  margin-left: 19rem;
+  font-size: 3.7rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.above p {
+  margin-top: 1rem;
+  margin-left: 19rem;
+  margin-bottom: 7rem;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: row;
+  margin-left: 19rem;
+}
+
+.image1 .p1 {
+  position: absolute;
+  color: green;
+  top: 130rem;
+  left: 30rem;
+  margin-bottom: 4rem;
+  border-bottom: 3px solid #ffffff;
+}
+
+.image1 .h1 {
+  position: absolute;
+  color: var(--color-white);
+  top: 133rem;
+  left: 29rem;
+  font-size: 2.5rem;
+}
+
+.image1 .p2 {
+  position: absolute;
+  color: var(--bs-white);
+  top: 140.5rem;
+  left: 29rem;
+}
+
+.image1 .btn1 {
+  position: absolute;
+  top: 144rem;
+  left: 29rem;
+  height: 3.5rem;
+  width: 12rem;
+  cursor: pointer;
+  background: #ffffff;
+  border-radius: 1rem;
+  color: #66bb6a;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.image1 .p3 {
+  position: absolute;
+  color: green;
+  top: 130rem;
+  left: 77rem;
+  margin-bottom: 4rem;
+  border-bottom: 3px solid #ffffff;
+}
+
+.image1 .h2 {
+  position: absolute;
+  color: var(--color-white);
+  top: 133rem;
+  left: 77rem;
+  font-size: 2.5rem;
+}
+
+.image1 .p4 {
+  position: absolute;
+  color: var(--bs-white);
+  top: 140.5rem;
+  left: 77rem;
+}
+
+.image1 .btn2 {
+  position: absolute;
+  top: 144rem;
+  left: 77rem;
+  height: 3.5rem;
+  width: 12rem;
+  cursor: pointer;
+  background: #ffffff;
+  border-radius: 1rem;
+  color: #66bb6a;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.image1 .pic1 {
+  width: 45rem;
+  margin-right: 3rem;
+}
+
+.bg-img {
+  width: 100%;
+  margin-top: 13rem;
+  height: 65rem;
+}
+
+.heading1 {
+  position: absolute;
+  top: 175rem;
+  left: 50rem;
+  font-size: 3.5rem;
+}
+
+.para1 {
+  position: absolute;
+  top: 183rem;
+  left: 45rem;
+}
+
+.progress-img {
+  position: absolute;
+  top: 190rem;
+  left: 30rem;
+}
+
+.heading2 {
+  position: absolute;
+  top: 210rem;
+  left: 30rem;
+  color: #ffffff;
+  font-size: 2.5rem;
+  width: 35rem;
+}
+
+.para2 {
+  position: absolute;
+  top: 210rem;
+  left: 70rem;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.head {
+  position: absolute;
+  margin-top: 12rem;
+  margin-left: 8rem;
+  font-size: 2.3rem;
+}
+
+.quot-img {
+  margin-top: 11rem;
+  margin-left: 5rem;
+}
+
+.users {
+  display: flex;
+  flex-direction: row;
+  margin-top: 8rem;
+  margin-left: 18rem;
+  margin-bottom: 5rem;
+  gap: 3rem;
+}
+
+.user1 {
+  width: 27rem;
+  height: 14rem;
+  background-color: #ffffff;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.user2 {
+  width: 27rem;
+  height: 14rem;
+  background-color: #ffffff;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.user3 {
+  width: 27rem;
+  height: 14rem;
+  background-color: #ffffff;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.user1 img {
+  margin: 1rem;
+}
+
+.user2 img {
+  margin: 1rem;
+}
+
+.user3 img {
+  margin: 1rem;
+}
+
+.par1 {
+  position: absolute;
+  margin-top: -5rem;
+  margin-left: 8rem;
+}
+
+.par2 {
+  position: absolute;
+  margin-top: -3rem;
+  margin-left: 8rem;
+}
+
+.par3 {
+  margin-left: 2rem;
+}
+
+.arrows {
+  margin-top: 20rem;
+  gap: 2rem;
+}
+
+.arrows .span1 {
+  font-size: 3rem;
+  background: #66bb6a;
+  border-radius: 60%;
+  color: var(--color-white);
+  padding: 1rem;
+}
+
+.arrows .span2 {
+  font-size: 3rem;
+  background: #66bb6a;
+  border-radius: 50%;
+  color: var(--color-white);
+  padding: 1rem;
+}
+
+.future {
+  width: 115rem;
+  height: 17rem;
+  background-color: #ffffff;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
+  margin-top: 15rem;
+  margin-left: 5rem;
+  margin-bottom: 4rem;
+}
+
+.invest-btn {
+  height: 3.5rem;
+  width: 12rem;
+  cursor: pointer;
+  background: #66bb6a;
+  border-radius: 0.5rem;
+  color: var(--bs-white);
+  font-weight: 800;
+  font-size: 1rem;
+  position: absolute;
+  margin-top: 8rem;
+  margin-left: -7rem;
+}
+
+.future h1 {
+  position: absolute;
+  margin-top: 4rem;
+  margin-left: 33rem;
+  font-size: 3rem;
+}
+
+.future h1 span {
+  color: green;
+}
+
+.contact {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 7rem;
+  margin-top: 10rem;
+  margin-right: 6rem;
+  margin-bottom: 3rem;
+}
+
+.row1 {
+  line-height: 3rem;
+}
+
+.row1 ul li {
+  list-style: none;
+  cursor: pointer;
+}
+
+.row2 {
+  line-height: 3rem;
+}
+
+.row2 ul li {
+  list-style: none;
+  cursor: pointer;
+}
+
+.row3 {
+  line-height: 3rem;
+}
+
+.row3 ul li {
+  list-style: none;
+  cursor: pointer;
+}
+
+.row4 {
+  background: #66bb6a;
+  height: 12rem;
+  width: 23rem;
+  border-radius: 0.6rem;
+}
+
+.row4 button {
+  height: 3.5rem;
+  width: 9rem;
+  cursor: pointer;
+  background: #ffffff;
+  border-radius: 1rem;
+  color: #66bb6a;
+  font-weight: 800;
+  font-size: 1rem;
+  position: absolute;
+  margin-top: 5.5rem;
+  margin-left: 2rem;
+}
+
+.row4 h2 {
+  position: absolute;
+  color: #ffffff;
+  margin-left: 2rem;
+  margin-top: 1.5rem;
+}
+
+.row4 button span {
+  color: #66bb6a;
+}
+
+.row4 p {
+  position: absolute;
+  color: #ffffff;
+  margin-left: 2rem;
+  margin-top: 3.5rem;
+}
+
+.line {
+  border-top: 1px solid #0c0c22;
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer img {
+  margin-left: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer p {
+  margin-right: 3rem;
+  margin-bottom: 3rem;
 }
